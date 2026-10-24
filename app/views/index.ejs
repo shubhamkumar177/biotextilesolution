@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <%- include('partials/head') %>
+  <title>Bio Textile Solution UK — Lifecycle you can see. Claims you can prove.</title>
+  <meta name="description" content="Bio Textile Solution UK supplies non-electronic, responsive-material lifecycle indicators to UK intimate and functional apparel brands. Indicative pricing in pounds, UK compliance support and a pilot programme for 2–3 brands.">
+  <link rel="canonical" href="<%= siteUrl %>/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bio Textile Solution UK">
+  <meta property="og:title" content="Bio Textile Solution UK — Lifecycle you can see. Claims you can prove.">
+  <meta property="og:description" content="Non-electronic lifecycle indicators for UK intimate and functional apparel. Join the first UK pilot cohort.">
+  <meta property="og:url" content="<%= siteUrl %>/">
+  <meta property="og:locale" content="en_GB">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"<%= company.name %>","url":"<%= siteUrl %>/","description":"UK distribution partner for non-electronic textile lifecycle technologies.","areaServed":"GB"}</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"><span data-progress-bar></span></div>
+
+  <header class="nav" data-nav>
+    <div class="nav__inner container">
+      <a class="brand" href="/" aria-label="<%= company.name %> home"><%- include('partials/brand') %></a>
+      <nav class="nav__links" id="nav-links" aria-label="Primary">
+        <a href="#how-it-works">How it works</a>
+        <% if (pricing.show) { %><a href="#business-case">Business case</a><% } %>
+        <a href="#compliance">UK compliance</a>
+        <a href="#sustainability">Sustainability</a>
+        <a class="btn btn--small btn--primary nav__cta" href="#pilot">Apply for the pilot</a>
+      </nav>
+      <button class="nav__toggle" type="button" aria-controls="nav-links" aria-expanded="false" data-nav-toggle>
+        <span class="sr-only">Menu</span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============================== Hero -->
+    <section class="hero">
+      <div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <a class="eyebrow" href="#pilot"><span class="eyebrow__dot"></span>UK pilot cohort now open <span class="eyebrow__sep">·</span> <span class="eyebrow__muted">2–3 brands</span> <span aria-hidden="true">→</span></a>
+          <h1 class="display"><span class="sr-only">Lifecycle you can see. Claims you can prove.</span><span aria-hidden="true"><span class="w w1"><span>Lifecycle</span></span> <span class="w w2"><span>you</span></span> <span class="w w3"><span>can</span></span> <span class="w w4"><span>see.</span></span> <em><span class="w w5"><span>Claims</span></span> <span class="w w6"><span>you</span></span> <span class="w w7"><span>can</span></span> <span class="w w8"><span>prove.</span></span></em></span></h1>
+          <p class="lead">We bring non-electronic, responsive-material lifecycle indicators to UK intimate and functional apparel brands, helping your customers care, reuse and recycle better, and helping you evidence every claim you make.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary btn--lg" href="#pilot">Apply for the UK Pilot Programme <span aria-hidden="true">→</span></a>
+            <a class="btn btn--ghost btn--lg" href="#pilot" data-specs-cta>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v10m0 0-4-4m4 4 4-4M4 16h12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download Technical &amp; Compatibility Specs
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="chip chip--a" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><rect x="4" y="6" width="12" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 6V4m3 2V4m3 2V4M3 17 17 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span><strong>No electronics</strong>No chips, no batteries</span>
+          </div>
+          <a class="chip chip--b" href="#pilot">
+            <span class="chip__seats"><i></i><i></i><i></i></span>
+            <span><strong>Pilot cohort open</strong>2–3 UK brands</span>
+          </a>
+        <figure class="instrument" data-dial>
+          <div class="instrument__head">
+            <span>Lifecycle indicator</span>
+            <span class="instrument__live"><span class="pulse"></span>Live simulation</span>
+          </div>
+          <div class="dial">
+            <svg class="dial__svg" viewBox="0 0 360 360" aria-hidden="true">
+              <defs>
+                <pattern id="weave" width="7" height="7" patternUnits="userSpaceOnUse">
+                  <path d="M0 3.5h7M3.5 0v7" stroke="#fff" stroke-opacity=".09" stroke-width="1"/>
+                </pattern>
+                <radialGradient id="sheen" cx="32%" cy="28%" r="80%">
+                  <stop offset="0" stop-color="#fff" stop-opacity=".34"/>
+                  <stop offset=".55" stop-color="#fff" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <g data-ticks></g>
+              <circle class="dial__track" cx="180" cy="180" r="150"/>
+              <circle class="dial__progress" cx="180" cy="180" r="150" pathLength="50" transform="rotate(-90 180 180)" data-progress/>
+              <circle class="dial__swatch" cx="180" cy="180" r="112"/>
+              <circle cx="180" cy="180" r="112" fill="url(#weave)"/>
+              <circle cx="180" cy="180" r="112" fill="url(#sheen)"/>
+              <g class="dial__hand" data-hand>
+                <path d="M180 184c0-34 20-58 52-62 2 34-18 58-52 62Z" fill="#f7f3f1" stroke="#1d171b" stroke-opacity=".22" stroke-width="1.5"/>
+                <path d="M180 184 214 140" stroke="var(--lc)" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+              </g>
+              <circle cx="180" cy="184" r="7" fill="#f7f3f1"/>
+            </svg>
+          </div>
+          <div class="readout">
+            <div>
+              <span class="readout__count" data-count>0</span>
+              <span class="readout__unit">/ 50 wash cycles</span>
+            </div>
+            <div class="readout__stage">
+              <span class="readout__k">Milestone</span>
+              <span class="readout__v" data-stage>Care</span>
+            </div>
+          </div>
+          <label class="range">
+            <span class="sr-only">Simulate wash cycles</span>
+            <input type="range" min="0" max="50" step="1" value="0" data-range>
+          </label>
+          <ol class="stages" aria-label="Lifecycle milestones">
+            <li data-stage-item>Care</li>
+            <li data-stage-item>Maintain</li>
+            <li data-stage-item>Reuse</li>
+            <li data-stage-item>Recycle</li>
+          </ol>
+          <figcaption class="instrument__note">Drag to simulate. Illustrative only: colour response is calibrated per product.</figcaption>
+        </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Ticker -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <% for (let k = 0; k < 2; k++) { %>
+        <span>Care</span><i></i><span>Maintain</span><i></i><span>Reuse</span><i></i><span>Recycle</span><i></i>
+        <span>Non-electronic</span><i></i><span>Wash-calibrated</span><i></i><span>Priced in sterling</span><i></i><span>Built for UK rules</span><i></i>
+        <% } %>
+      </div>
+    </div>
+
+    <!-- ============================== Manifesto -->
+    <section class="manifesto">
+      <div class="container">
+        <p class="manifesto__text" data-manifesto>Most labels tell you how to wash a garment. Ours show where it is in its life, so it can be cared for, kept longer, passed on and, finally, recycled. Not simply replaced.</p>
+        <dl class="figures">
+          <div class="figure reveal"><dt class="figure__num" data-count-to="0">0</dt><dd>electronic components. No chips, no batteries.</dd></div>
+          <div class="figure reveal"><dt class="figure__num" data-count-to="50">50</dt><dd>wash cycles of calibrated, visible milestones.</dd></div>
+          <div class="figure reveal"><dt class="figure__num"><span data-count-to="12">12</span><small>wks</small></dt><dd>from pilot application to production, indicatively.</dd></div>
+          <div class="figure reveal"><dt class="figure__num">2–3</dt><dd>UK brands selected for the first pilot cohort.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============================== Sustainability -->
+    <section class="section section--dark sustain" id="sustainability">
+      <div class="container">
+        <div class="sustain__head reveal">
+          <p class="kicker">01 · Sustainability</p>
+          <h2 class="h2">Make lifecycle decisions <em>easier to get right.</em></h2>
+          <p class="body-lg muted">We help brands make a garment’s state of use visible, so customers can care for it, keep it longer and replace it responsibly, instead of relying on guesswork, habit or vague care instructions.</p>
+        </div>
+
+        <div class="sustain__role reveal">
+          <span class="sustain__badge">Our position</span>
+          <div>
+            <h3>A practical sustainability role</h3>
+            <p>A lifecycle indicator is not a certification or an eco-label on its own. Its role is practical: helping product teams and customers understand where a garment is in its life, and connecting that to better care, use and replacement decisions.</p>
+          </div>
+        </div>
+
+        <div class="sustain__cards">
+          <article class="sustain__card reveal">
+            <span class="sustain__n">01</span>
+            <h3>Reduce guesswork</h3>
+            <p>A visible lifecycle cue replaces memory and habit as the basis for care and replacement decisions.</p>
+          </article>
+          <article class="sustain__card reveal">
+            <span class="sustain__n">02</span>
+            <h3>Support responsible replacement</h3>
+            <p>Brands can clearly explain when a garment is still within expected use, and when it is time to consider replacing it.</p>
+          </article>
+          <article class="sustain__card reveal">
+            <span class="sustain__n">03</span>
+            <h3>Improve lifecycle communication</h3>
+            <p>Complex performance and durability ideas become one simple signal, shown on the product itself.</p>
+          </article>
+        </div>
+
+        <div class="sustain__decisions reveal">
+          <h3>Where it supports <em>better decisions</em></h3>
+          <ul class="sustain__list">
+            <li><span>Customers</span>A visible cue showing how far a garment is through its expected use.</li>
+            <li><span>Products</span>Guidance tied to your category, your lifecycle model and what is verified on samples.</li>
+            <li><span>Language</span>Clear terms buyers understand, never vague “eco” claims:
+              <span class="sustain__terms"><b>Visible usage state</b><b>Responsible replacement</b><b>Avoiding overuse</b><b>Avoiding premature disposal</b></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sustain__cta reveal">
+          <div>
+            <h3>Exploring a sustainability-led product idea?</h3>
+            <p>Share your product category and how you think about replacement today. We’ll suggest a lifecycle signal and a sample direction.</p>
+          </div>
+          <div class="sustain__actions">
+            <a class="btn btn--light btn--lg" href="#pilot">Start a pilot <span aria-hidden="true">→</span></a>
+            <a class="btn btn--outline-light btn--lg" href="#business-case">See the business case</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== How it works -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">02 · How it works</p>
+          <h2 class="h2">A calibrated milestone, <em>visible on the garment.</em></h2>
+          <p class="body-lg muted">A non-electronic, responsive-material indicator, also called a colorimetric indicator, gradually shifts colour as a garment is worn and washed.</p>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 80"><rect x="18" y="14" width="84" height="52" rx="8" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="30" y="26" width="26" height="28" rx="4" class="step__swatch"/><path d="M64 32h26M64 40h20M64 48h24" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="step__n">Step 1</span>
+            <h3>Integrated</h3>
+            <p>Supplied as a detachable label or a bespoke element designed into your garment and brand architecture.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 80"><defs><linearGradient id="g-shift" x1="0" x2="1"><stop offset="0" stop-color="#5e2a4b"/><stop offset=".5" stop-color="#a87192"/><stop offset="1" stop-color="#f2d6df"/></linearGradient></defs><rect x="14" y="30" width="92" height="20" rx="10" fill="url(#g-shift)"/><path d="M14 62h92" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2 6" stroke-linecap="round"/></svg>
+            </div>
+            <span class="step__n">Step 2</span>
+            <h3>Responds</h3>
+            <p>The material reacts to wear and wash cycles. No hardware, batteries or electronic components are involved.</p>
+          </li>
+          <li class="step reveal">
+            <div class="step__art" aria-hidden="true">
+              <svg viewBox="0 0 120 80"><circle cx="60" cy="40" r="24" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="m50 40 7 7 14-15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="step__n">Step 3</span>
+            <h3>Informs</h3>
+            <p>A visible milestone helps customers and brands make better-informed decisions about the garment’s next step.</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ============================== Lifecycle story (scroll-driven) -->
+    <section class="story" id="lifecycle" data-story aria-label="How the indicator guides each stage of a garment's life">
+      <div class="story__sticky">
+        <div class="container story__grid">
+          <div class="story__copy">
+            <p class="kicker">Designed to extend life, not shorten it</p>
+            <h2 class="h2">Not a “replace me” signal. <em>A guide for every stage.</em></h2>
+            <div class="story__nav">
+              <span class="story__indicator" data-story-indicator aria-hidden="true"></span>
+              <ol class="story__stages">
+                <li class="story__stage is-active" data-story-stage><span class="story__range">0–12</span><h3>Care</h3></li>
+                <li class="story__stage" data-story-stage><span class="story__range">13–25</span><h3>Maintain</h3></li>
+                <li class="story__stage" data-story-stage><span class="story__range">26–38</span><h3>Reuse</h3></li>
+                <li class="story__stage" data-story-stage><span class="story__range">39–50</span><h3>Recycle</h3></li>
+              </ol>
+            </div>
+            <div class="story__details">
+              <p class="story__detail is-active" data-story-detail>A new garment in its prime. The indicator reinforces the right care from the very first wash.</p>
+              <p class="story__detail" data-story-detail>Performance holding. A visible cue to keep caring well, so the garment lasts longer.</p>
+              <p class="story__detail" data-story-detail>Still serviceable. The right moment to consider repair, refresh or a second use.</p>
+              <p class="story__detail" data-story-detail>Milestone reached. Guidance to return fibre to the loop, and to replace only when needed.</p>
+            </div>
+          </div>
+
+          <div class="story__visual" aria-hidden="true">
+            <div class="flat" data-fan>
+              <svg class="flat__svg" viewBox="0 0 440 340">
+                <defs>
+                  <linearGradient id="flat-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fcfaf9"/><stop offset="1" stop-color="#efe8e4"/>
+                  </linearGradient>
+                  <filter id="flat-shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="20" stdDeviation="18" flood-color="#1d171b" flood-opacity=".12"/></filter>
+                </defs>
+                <g class="flat__fills">
+                  <path d="M70 64 Q220 52 370 64 L366 104 L354 170 Q290 196 262 298 Q220 308 178 298 Q150 196 86 170 L74 104 Z" fill="url(#flat-fill)" filter="url(#flat-shadow)"/>
+                  <path d="M70 64 Q220 52 370 64 L366 104 Q220 92 74 104 Z" fill="#ece4df"/>
+                  <path d="M186 212 Q220 204 254 212 L262 292 Q220 302 178 292 Z" class="flat__gusset"/>
+                </g>
+                <g class="flat__lines">
+                  <path pathLength="1" d="M70 64 Q220 52 370 64 L366 104 L354 170 Q290 196 262 298 Q220 308 178 298 Q150 196 86 170 L74 104 Z"/>
+                  <path pathLength="1" d="M74 104 Q220 92 366 104"/>
+                  <path pathLength="1" class="flat__thin" d="M82 68.1V98.1M92 67.4V97.4M102 66.7V96.7M112 66.1V96.1M122 65.6V95.6M132 65.1V95.1M142 64.6V94.6M152 64.2V94.2M162 63.9V93.9M172 63.6V93.6M182 63.4V93.4M192 63.2V93.2M252 63.3V93.3M262 63.5V93.5M272 63.7V93.7M282 64.0V94.0M292 64.4V94.4M302 64.8V94.8M312 65.3V95.3M322 65.8V95.8M332 66.3V96.3M342 67.0V97.0M352 67.6V97.6"/>
+                  <path pathLength="1" class="flat__stitch" d="M76 97 Q220 85 364 97"/>
+                  <path pathLength="1" class="flat__stitch" d="M93 177 Q155 202 184 291"/>
+                  <path pathLength="1" class="flat__stitch" d="M347 177 Q285 202 256 291"/>
+                  <path pathLength="1" class="flat__stitch" d="M186 212 Q220 204 254 212 L262 292 Q220 302 178 292 Z"/>
+                  <path pathLength="1" class="flat__thin" d="M220 108 V148"/>
+                </g>
+                <path class="flat__leader" d="M237 74 L300 30 H440"/>
+                <g class="flat__label" data-story-tag>
+                  <rect x="203" y="58" width="34" height="44" rx="5"/>
+                  <rect x="207" y="62" width="26" height="36" rx="3" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1" stroke-dasharray="2 2.5"/>
+                </g>
+              </svg>
+              <div class="spec">
+                <div class="spec__chip"><span class="swatch__dye" data-story-dye></span></div>
+                <p class="spec__k">Indicator · simulated</p>
+                <div class="spec__row">
+                  <p class="swatch__count"><span class="odo" data-odo><span class="odo__col"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span><span class="odo__col"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></span><small>/ 50 washes</small></p>
+                  <p class="swatch__stage" data-story-name>Care</p>
+                </div>
+                <div class="swatch__progress"><span></span></div>
+              </div>
+            </div>
+            <ol class="chips" aria-hidden="true">
+              <li data-story-chip><i></i>Care</li>
+              <li data-story-chip><i></i>Maintain</li>
+              <li data-story-chip><i></i>Reuse</li>
+              <li data-story-chip><i></i>Recycle</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% if (pricing.show) {
+      const fmt = (n) => '£' + n.toFixed(2);
+    %>
+    <!-- ============================== Business case -->
+    <section class="section section--tint" id="business-case">
+      <div class="container">
+        <div class="section__head section__head--row reveal">
+          <div>
+            <p class="kicker">03 · The business case</p>
+            <h2 class="h2">What it costs, <em>in pounds and pence.</em></h2>
+          </div>
+          <p class="muted">We know BOMs are already stretched by the move to certified and recycled materials. Here’s exactly what this adds to your range. Figures are indicative, exclude VAT and are confirmed in a written quote.</p>
+        </div>
+
+        <div class="estimator reveal" data-estimator data-pricing="<%= JSON.stringify({ standard: pricing.standard.map(b => ({ ...b, max: b.max === Infinity ? null : b.max })), bespoke: pricing.bespoke, washLife: pricing.washLife }) %>">
+          <div class="estimator__inputs">
+            <div class="est-field">
+              <div class="est-field__row">
+                <label for="est-volume">Garments per year</label>
+                <output class="est-field__value" for="est-volume" data-est-volume-out>50,000</output>
+              </div>
+              <input id="est-volume" type="range" min="0" max="100" step="1" value="57" data-est-volume>
+              <div class="est-field__scale" aria-hidden="true"><span>5k</span><span>1M</span></div>
+            </div>
+            <div class="est-field">
+              <label for="est-rrp">Typical retail price (RRP)</label>
+              <div class="money"><span aria-hidden="true">£</span><input id="est-rrp" type="number" inputmode="decimal" min="5" max="500" step="1" value="28" data-est-rrp></div>
+            </div>
+            <fieldset class="est-field est-tier">
+              <legend>Integration</legend>
+              <label><input type="radio" name="est-tier" value="standard" checked data-est-tier><span>Standard</span></label>
+              <label><input type="radio" name="est-tier" value="bespoke" data-est-tier><span>Bespoke</span></label>
+            </fieldset>
+          </div>
+          <div class="estimator__out" aria-live="polite">
+            <p class="estimator__k">Indicative price per label</p>
+            <p class="estimator__price" data-est-price>£0.24 – £0.30</p>
+            <p class="estimator__band" data-est-band>Volume band: 50k – 100k</p>
+            <dl class="estimator__stats">
+              <div><dt>Share of RRP</dt><dd data-est-share>0.9% – 1.1%</dd></div>
+              <div><dt>Cost per wash*</dt><dd data-est-wash>0.5p – 0.6p</dd></div>
+              <div><dt>Annual label cost</dt><dd data-est-annual>£12,000 – £15,000</dd></div>
+            </dl>
+            <p class="estimator__note" data-est-note>*Spread across a <%= pricing.washLife %>-wash calibrated life. Excludes VAT.</p>
+          </div>
+        </div>
+
+        <div class="price-table reveal">
+          <table>
+            <caption>Indicative Standard pricing per label (GBP, excl. VAT, delivered UK)</caption>
+            <thead><tr><th scope="col">Annual volume</th><th scope="col">Price per label</th></tr></thead>
+            <tbody>
+              <% pricing.standard.forEach(function (b) { %>
+              <tr><th scope="row"><%= b.label %></th><td><%= fmt(b.low) %> – <%= fmt(b.high) %></td></tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <p class="price-table__note">Bespoke integration: per-label premium of <%= Math.round((pricing.bespoke.upliftLow - 1) * 100) %>–<%= Math.round((pricing.bespoke.upliftHigh - 1) * 100) %>% plus a one-off design and calibration fee from £<%= pricing.bespoke.setupFrom.toLocaleString('en-GB') %>. Invoiced in sterling, with UK stock and support. Pricing is indicative, subject to specification and volume, and confirmed in a written quote.</p>
+        </div>
+      </div>
+    </section>
+    <% } %>
+
+    <!-- ============================== Integration models -->
+    <section class="section" id="integration">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">04 · Integration models</p>
+          <h2 class="h2">Two ways to bring it <em>to your range.</em></h2>
+        </div>
+        <div class="tiers">
+          <article class="tier reveal">
+            <header class="tier__head">
+              <p class="tier__tag">Plug-and-play</p>
+              <h3 class="tier__name">Standard</h3>
+            </header>
+            <dl class="tier__rows">
+              <div><dt>Best for</dt><dd>Period underwear, functional intimates and high-growth performance lines.</dd></div>
+              <div><dt>The model</dt><dd>An off-the-shelf, cleanly detachable ingredient-brand label.</dd></div>
+              <div><dt>Value edge</dt><dd>Minimal R&amp;D friction and a fast route from evaluation to production.</dd></div>
+              <div><dt>BOM impact</dt><dd><strong>Volume-optimised.</strong> Pricing steps down as your volumes grow<% if (pricing.show) { %>, from <%= '£' + pricing.standard[pricing.standard.length - 1].low.toFixed(2) %> per label at scale<% } %>.</dd></div>
+            </dl>
+            <a class="tier__link" href="#pilot" data-category="Period Underwear">Discuss Standard →</a>
+          </article>
+          <article class="tier tier--bespoke reveal">
+            <header class="tier__head">
+              <p class="tier__tag">Custom integration</p>
+              <h3 class="tier__name">Bespoke</h3>
+            </header>
+            <dl class="tier__rows">
+              <div><dt>Best for</dt><dd>Premium lingerie, luxury boutique brands and signature designer labels.</dd></div>
+              <div><dt>The model</dt><dd>Custom-engineered elements designed into your garment and logo architecture.</dd></div>
+              <div><dt>Value edge</dt><dd>A high-tech wellness story without compromising luxury aesthetic or brand identity.</dd></div>
+              <div><dt>BOM impact</dt><dd><strong>Premium tier.</strong> High-margin differentiation from high-street competitors<% if (pricing.show) { %>, with a one-off design fee from £<%= pricing.bespoke.setupFrom.toLocaleString('en-GB') %><% } %>.</dd></div>
+            </dl>
+            <a class="tier__link" href="#pilot" data-category="Premium Lingerie">Discuss Bespoke →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Segments -->
+    <section class="section section--tint" id="segments">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">05 · Who it’s for</p>
+          <h2 class="h2">Built for the vanguard of <em>functional fashion.</em></h2>
+        </div>
+        <div class="segments">
+          <article class="segment reveal">
+            <span class="segment__n">i.</span>
+            <h3>Period &amp; leakproof apparel</h3>
+            <p><strong>Visible evidence of fabric lifespan</strong> for customers who already think in wash cycles.</p>
+          </article>
+          <article class="segment reveal">
+            <span class="segment__n">ii.</span>
+            <h3>Wellness shapewear</h3>
+            <p><strong>Anchor premium claims in material science</strong>, showing fabric resilience wash after wash.</p>
+          </article>
+          <article class="segment reveal">
+            <span class="segment__n">iii.</span>
+            <h3>Premium lingerie</h3>
+            <p><strong>A high-tech wellness narrative</strong> that supports boutique pricing and builds loyalty.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== UK compliance -->
+    <section class="section section--dark" id="compliance">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">06 · UK compliance</p>
+          <h2 class="h2">Built for UK rules <em>from day one.</em></h2>
+          <p class="body-lg muted">A technology is only as good as the claims and documentation behind it. These are the standards we hold ourselves and our suppliers to.</p>
+        </div>
+        <div class="pillars">
+          <article class="pillar reveal">
+            <svg class="pillar__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 7 9v10c0 8.5 5.6 14.6 13 17 7.4-2.4 13-8.5 13-17V9L20 4Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="m14 20 4.5 4.5L27 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Green claims</h3>
+            <p>Customer-facing wording aligned with the CMA Green Claims Code and the Digital Markets, Competition and Consumers Act 2024. Specific, evidenced and never absolute.</p>
+          </article>
+          <article class="pillar reveal">
+            <svg class="pillar__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M15 5h10M17 5v9L8 31a3 3 0 0 0 2.7 4.4h18.6A3 3 0 0 0 32 31l-9-17V5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 25h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>Chemical &amp; skin safety</h3>
+            <p>Before supply, we require safety data sheets, UK REACH conformity and skin-contact test evidence, essential for garments worn next to skin.</p>
+          </article>
+          <article class="pillar reveal">
+            <svg class="pillar__icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 6a14 14 0 0 1 12.1 7M34 20a14 14 0 0 1-7 12.1M20 34a14 14 0 0 1-12.1-7M6 20a14 14 0 0 1 7-12.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="m29 9 3 4-5 .5M31 31l-4 3-.5-5M11 31l-3-4 5-.5M9 9l4-3 .5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Recycling compatibility</h3>
+            <p>No electronic parts to remove. Compatibility is evaluated per product and recycling system, supporting mono-material goals, and never assumed.</p>
+          </article>
+          <article class="pillar reveal">
+            <svg class="pillar__icon" viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="17" width="22" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 17v-4a6 6 0 0 1 12 0v4" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="20" cy="25.5" r="2" fill="currentColor"/></svg>
+            <h3>Data &amp; privacy</h3>
+            <p>Enquiry data handled under UK GDPR, hosted in the UK-adequate EU, kept for a set period and never sold. No tracking cookies on this site.</p>
+          </article>
+        </div>
+
+        <div class="claims reveal">
+          <h3 class="claims__title">Our claims standard</h3>
+          <ol class="claims__list">
+            <li><strong>Evidence first.</strong> Performance claims only when backed by test data we can share.</li>
+            <li><strong>Evaluated, never assumed.</strong> Recycling compatibility assessed per product and system.</li>
+            <li><strong>Precise language.</strong> Technologies described exactly as they work, never with vague “eco” labels.</li>
+            <li><strong>Claims you can stand behind.</strong> We help you word customer-facing claims in line with UK guidance.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== Process -->
+    <section class="section section--tint" id="process">
+      <div class="container">
+        <div class="section__head reveal">
+          <p class="kicker">07 · The pilot, step by step</p>
+          <h2 class="h2">From application to production <em>in about 12 weeks.</em></h2>
+        </div>
+        <ol class="process reveal">
+          <li class="process__step"><span class="process__dot"></span><span class="process__n">Week 0</span><h3>Apply</h3><p>Tell us your category, volumes and objectives.</p></li>
+          <li class="process__step"><span class="process__dot"></span><span class="process__n">Weeks 1–2</span><h3>Discovery</h3><p>We review fit, integration model and timelines with your team.</p></li>
+          <li class="process__step"><span class="process__dot"></span><span class="process__n">Weeks 2–8</span><h3>Evaluate</h3><p>Wash-cycle samples and documentation, tested on your fabrics.</p></li>
+          <li class="process__step"><span class="process__dot"></span><span class="process__n">Weeks 8–10</span><h3>Specify &amp; quote</h3><p>BOM-aligned specification and a written sterling quote.</p></li>
+          <li class="process__step"><span class="process__dot"></span><span class="process__n">Week 12+</span><h3>Produce</h3><p>Into production with UK supply and claims support.</p></li>
+        </ol>
+        <p class="process__note">Timings are indicative and depend on your testing and production calendar.</p>
+      </div>
+    </section>
+
+    <!-- ============================== Pilot form -->
+    <section class="section section--dark pilot" id="pilot">
+      <div class="container pilot__grid">
+        <div class="pilot__intro reveal">
+          <p class="kicker">08 · UK pilot programme</p>
+          <h2 class="h2">Join the first <em>UK pilot cohort.</em></h2>
+          <p class="body-lg muted">We are selecting 2–3 UK brands for first-year pilot discussions. Pilot partners receive wash-cycle evaluation samples and collaborate with us on cost-efficient specifications tailored to their Bill of Materials.</p>
+          <ul class="checks">
+            <li>Wash-cycle evaluation sample kit</li>
+            <li>Technical &amp; compatibility specification pack</li>
+            <li>BOM-aligned specification and sterling quote</li>
+            <li>Guidance on UK-compliant customer claims</li>
+          </ul>
+          <p class="cohort"><span class="cohort__seats"><i></i><i></i><i></i></span>Cohort limited to 2–3 brands</p>
+        </div>
+
+        <div class="form-card reveal">
+          <form class="form" method="post" action="/api/pilot" novalidate data-pilot-form>
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="f-name">First &amp; last name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120">
+                <p class="field__error" data-error-for="name"></p>
+              </div>
+              <div class="field">
+                <label for="f-company">Company / brand name</label>
+                <input id="f-company" name="company" type="text" autocomplete="organization" required maxlength="160">
+                <p class="field__error" data-error-for="company"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-email">Work email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required maxlength="254">
+              <p class="field__error" data-error-for="email"></p>
+            </div>
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="f-category">Primary category</label>
+                <div class="select">
+                  <select id="f-category" name="category" required>
+                    <option value="" disabled selected>Select…</option>
+                    <% categories.forEach(function (c) { %><option><%= c %></option><% }) %>
+                  </select>
+                </div>
+                <p class="field__error" data-error-for="category"></p>
+              </div>
+              <div class="field">
+                <label for="f-volume">Est. annual production</label>
+                <div class="select">
+                  <select id="f-volume" name="volume" required>
+                    <option value="" selected>Select…</option>
+                    <% volumes.forEach(function (v) { %><option><%= v %></option><% }) %>
+                  </select>
+                </div>
+                <p class="field__error" data-error-for="volume"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-message">Message / pilot objectives <span class="optional">Optional</span></label>
+              <textarea id="f-message" name="message" rows="4" maxlength="2000" placeholder="e.g. evidencing fabric lifespan on our leakproof range for an AW27 launch"></textarea>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="f-website">Website</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="check">
+              <input type="checkbox" name="wantsSpecs" value="on" data-specs-box>
+              <span>Send me the Technical &amp; Compatibility Specs</span>
+            </label>
+            <label class="check">
+              <input type="checkbox" name="consent" value="on" required>
+              <span>I agree that <%= company.name %> may contact me about this enquiry, as described in the <a href="/privacy" target="_blank" rel="noopener">privacy notice</a>.</span>
+            </label>
+            <p class="field__error" data-error-for="consent"></p>
+            <button class="btn btn--primary btn--lg btn--block" type="submit" data-submit>
+              <span data-submit-label>Request Pilot Access &amp; Sample Kit</span>
+            </button>
+            <p class="form__status" role="status" aria-live="polite" data-status></p>
+          </form>
+          <div class="form-success" hidden data-success tabindex="-1">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 24.5 6 6 12-13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Application received.</h3>
+            <p>Thank you. Our UK team will review your pilot objectives and be in touch within two working days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== FAQ -->
+    <section class="section" id="faq">
+      <div class="container faq">
+        <div class="faq__head reveal">
+          <p class="kicker">09 · Questions</p>
+          <h2 class="h2">Frequently <em>asked.</em></h2>
+          <p class="muted">Something else? Mention it in your pilot application and we’ll cover it on the discovery call.</p>
+        </div>
+        <div class="faq__list reveal">
+          <details class="faq__item">
+            <summary>Won’t a lifecycle indicator encourage customers to throw garments away?</summary>
+            <p>No. It isn’t a “replace me” signal. It makes a calibrated milestone visible so customers can make informed decisions about continued use, care, maintenance, reuse, recycling or, eventually, replacement.</p>
+          </details>
+          <details class="faq__item">
+            <summary>What does it cost?</summary>
+            <p><% if (pricing.show) { %>Standard labels are indicatively <%= '£' + pricing.standard[pricing.standard.length - 1].low.toFixed(2) %>–<%= '£' + pricing.standard[0].high.toFixed(2) %> per unit depending on annual volume, excluding VAT. Use the estimator above for your range. <% } %>Every pilot ends with a written sterling quote based on your final specification.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Is it safe for garments worn next to skin?</summary>
+            <p>Before supplying any technology, we require safety data sheets, UK REACH conformity and skin-contact test evidence from the manufacturer, and we share the relevant documentation with your compliance team.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Can garments still be recycled?</summary>
+            <p>The indicator contains no electronics. Material and recycling compatibility is evaluated against your specific product and recycling system, and the Standard label is designed to be cleanly detachable.</p>
+          </details>
+          <details class="faq__item">
+            <summary>How should we describe it to customers?</summary>
+            <p>As a non-electronic, responsive-material (colorimetric) lifecycle indicator. We help you word customer-facing claims so they are specific, evidenced and in line with UK green claims guidance.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Do you sell to consumers?</summary>
+            <p>No. We supply brands and manufacturers only. All prices exclude VAT.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+    <!-- ============================== Final CTA -->
+    <section class="cta-final">
+      <div class="container cta-final__inner reveal">
+        <p class="kicker">First UK cohort · 2–3 brands</p>
+        <h2 class="cta-final__title">Make the lifecycle <em>visible.</em></h2>
+        <p class="cta-final__lead">Apply for the pilot and receive wash-cycle samples, the technical pack and a written sterling quote.</p>
+        <div class="cta-final__actions">
+          <a class="btn btn--light btn--lg" href="#pilot">Apply for the UK Pilot Programme <span aria-hidden="true">→</span></a>
+          <a class="btn btn--outline-light btn--lg" href="#business-case">See the business case</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script src="/assets/js/main.js?v=<%= assetVersion %>" defer></script>
+</body>
+</html>

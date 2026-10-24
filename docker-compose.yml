@@ -1,0 +1,113 @@
+name: biotextile
+
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  app:
+    build: ./app
+    image: biotextile-app:latest
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      AWS_REGION: eu-west-1
+      APP_SECRET_ID: ${APP_SECRET_ID:-biotextile/prod}
+      SITE_URL: https://${DOMAIN}
+      NODE_OPTIONS: --max-old-space-size=320
+      # Trading disclosures shown in the footer / privacy notice (not secrets)
+      COMPANY_NAME: ${COMPANY_NAME:-Bio Textile Solution UK}
+      COMPANY_NUMBER: ${COMPANY_NUMBER:-}
+      REGISTERED_OFFICE: ${REGISTERED_OFFICE:-}
+      VAT_NUMBER: ${VAT_NUMBER:-}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-}
+      SHOW_PRICING: ${SHOW_PRICING:-true}
+      # Only used when running outside EC2 with a named profile from ~/.aws
+      AWS_PROFILE: ${AWS_PROFILE:-}
+    volumes:
+      - app-data:/app/data
+      # Optional: host AWS profile (non-EC2 hosts). On EC2 the instance role is used.
+      - ${AWS_CONFIG_DIR:-~/.aws}:/home/node/.aws:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    expose:
+      - "3000"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.75"
+          memory: 384M
+        reservations:
+          cpus: "0.10"
+          memory: 128M
+    logging: *logging
+
+  nginx:
+    build: ./nginx
+    image: biotextile-nginx:latest
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      DOMAIN_ALIASES: ${DOMAIN_ALIASES:-}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - letsencrypt:/etc/letsencrypt:ro
+      - certbot-webroot:/var/www/certbot:ro
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/nginx-health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 128M
+        reservations:
+          memory: 32M
+    logging: *logging
+
+  certbot:
+    image: certbot/certbot:v3.0.1
+    restart: unless-stopped
+    depends_on:
+      nginx:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "/opt/entrypoint.sh"]
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env}
+      DOMAIN_ALIASES: ${DOMAIN_ALIASES:-}
+      CERTBOT_EMAIL: ${CERTBOT_EMAIL:?set CERTBOT_EMAIL in .env}
+      CERTBOT_STAGING: ${CERTBOT_STAGING:-0}
+    volumes:
+      - ./certbot/entrypoint.sh:/opt/entrypoint.sh:ro
+      - letsencrypt:/etc/letsencrypt
+      - certbot-webroot:/var/www/certbot
+    security_opt:
+      - no-new-privileges:true
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+    logging: *logging
+
+volumes:
+  app-data:
+  letsencrypt:
+  certbot-webroot:

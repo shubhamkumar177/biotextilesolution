@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <%- include('partials/head') %>
+  <title><%= title %> · Bio Textile Solution UK</title>
+  <meta name="robots" content="noindex">
+</head>
+<body class="page-message">
+  <main class="message">
+    <a class="brand" href="/" aria-label="Bio Textile Solution UK home"><%- include('partials/brand') %></a>
+    <h1 class="message__title"><%= heading %></h1>
+    <p class="message__body"><%= body %></p>
+    <a class="btn btn--primary" href="<%= typeof backLink !== 'undefined' ? backLink : '/' %>">
+      <%= typeof backLink !== 'undefined' && backLink !== '/' ? 'Go back' : 'Return to Bio Textile Solution UK' %>
+    </a>
+  </main>
+</body>
+</html>

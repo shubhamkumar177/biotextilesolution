@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <%- include('partials/head') %>
+  <title>Privacy notice · <%= company.name %></title>
+  <meta name="description" content="How <%= company.name %> collects, uses and protects personal data under UK GDPR.">
+  <link rel="canonical" href="<%= siteUrl %>/privacy">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav is-scrolled">
+    <div class="nav__inner container">
+      <a class="brand" href="/" aria-label="<%= company.name %> home"><%- include('partials/brand') %></a>
+      <a class="btn btn--small btn--ghost" href="/">← Back to site</a>
+    </div>
+  </header>
+
+  <main id="main" class="legal container">
+    <p class="kicker">Legal</p>
+    <h1 class="h2">Privacy notice</h1>
+    <p class="legal__meta">Last updated 25 October 2026</p>
+
+    <h2>Who we are</h2>
+    <p><%= company.name %> (“we”, “us”) is the controller of personal data collected through this website.<% if (company.number) { %> Company number <%= company.number %>.<% } %><% if (company.registeredOffice) { %> Registered office: <%= company.registeredOffice %>.<% } %>
+    <% if (company.email) { %>You can contact us about privacy at <a href="mailto:<%= company.email %>"><%= company.email %></a>.<% } else { %>You can contact us about privacy through the enquiry form on our home page.<% } %></p>
+
+    <h2>What we collect</h2>
+    <p>When you apply for our pilot programme or send an enquiry, we collect your name, company or brand name, work email address, product category, estimated production volume, your message, whether you requested technical specifications, and your confirmation that we may contact you. We do not ask for special category data.</p>
+
+    <h2>Why we use it and our lawful basis</h2>
+    <p>We use this information to respond to your enquiry, assess fit for the pilot programme, send requested documentation and discuss a potential business relationship. Our lawful basis is our <strong>legitimate interests</strong> in responding to business enquiries and developing B2B relationships, and, where you ask us for something before entering a contract, taking steps at your request.</p>
+    <p>We do not use your data for automated decision-making and we will not add you to marketing mailings without asking first.</p>
+
+    <h2>Who we share it with</h2>
+    <p>We use Amazon Web Services to host this website and to send email notifications, in the AWS Europe (Ireland) region. The EU benefits from UK adequacy regulations. We do not sell personal data or share it with third parties for their own marketing.</p>
+
+    <h2>How long we keep it</h2>
+    <p>We keep enquiry data for up to <%= Math.round(retentionDays / 365) %> years from the date of your enquiry, after which it is automatically deleted, unless we have entered into a business relationship, in which case we keep it for as long as needed for that relationship and our legal obligations.</p>
+
+    <h2>Cookies</h2>
+    <p>This website does not set cookies or use analytics or advertising trackers. Fonts are served from our own server, so no data is sent to third-party font services.</p>
+
+    <h2>Your rights</h2>
+    <p>Under UK data protection law you have the right to access your personal data, have it corrected or erased, restrict or object to its processing, and receive it in a portable format. To exercise these rights, contact us using the details above. We will respond within one month.</p>
+    <p>If you are unhappy with how we handle your data, you can complain to the Information Commissioner’s Office (ICO) at <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">ico.org.uk/make-a-complaint</a> or on 0303 123 1113.</p>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

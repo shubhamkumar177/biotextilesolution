@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="footer__mark" aria-hidden="true">Bio Textile</div>
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="brand brand--light" href="/" aria-label="<%= company.name %> home"><%- include('brand') %></a>
+      <p class="footer__tag">UK distribution partner for textile innovation. Business-to-business supply only.</p>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="/#sustainability">Sustainability</a>
+      <a href="/#how-it-works">How it works</a>
+      <a href="/#business-case">Business case</a>
+      <a href="/#compliance">UK compliance</a>
+      <a href="/#pilot">Pilot programme</a>
+      <a href="/privacy">Privacy notice</a>
+    </nav>
+    <div class="footer__legal">
+      <p>
+        © <%= year %> <%= company.name %>.<% if (company.number) { %> Registered in England and Wales, company no. <%= company.number %>.<% } %><% if (company.registeredOffice) { %> Registered office: <%= company.registeredOffice %>.<% } %><% if (company.vatNumber) { %> VAT no. <%= company.vatNumber %>.<% } %>
+      </p>
+      <p>Prices are indicative, in pounds sterling and exclude VAT. All trademarks belong to their respective owners. This site sets no tracking cookies.</p>
+    </div>
+  </div>
+</footer>

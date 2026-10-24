@@ -1,0 +1,24 @@
+{
+  "name": "biotextile-uk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bio Textile Solution UK website",
+  "type": "module",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "SKIP_SECRETS=true node --watch src/server.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.967.0",
+    "compression": "^1.8.2",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.1",
+    "helmet": "^8.3.0",
+    "nodemailer": "^10.2.1"
+  }
+}

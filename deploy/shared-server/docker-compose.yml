@@ -1,0 +1,54 @@
+# Bio Textile Solution UK — app only, for the shared Spotfluence server.
+# The Spotfluence nginx (ports 80/443) terminates HTTPS and proxies to this container over the
+# "spotfluence_edge" Docker network. No ports are published on the host.
+#
+#   docker compose -f deploy/shared-server/docker-compose.yml up -d --build
+#   docker compose -f deploy/shared-server/docker-compose.yml down
+name: biotextile
+
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "3" }
+
+services:
+  # Never name this service "app": on the shared network that name would also resolve for
+  # Spotfluence's nginx ("upstream app") and silently take part of Spotfluence's traffic.
+  biotextile-app:
+    build: ../../app
+    image: biotextile-app:latest
+    container_name: biotextile-app
+    restart: unless-stopped
+    init: true
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      AWS_REGION: eu-west-1
+      APP_SECRET_ID: biotextile/prod
+      SITE_URL: ${SITE_URL:-https://biotextextilesolution.com}
+      NODE_OPTIONS: --max-old-space-size=320
+      COMPANY_NAME: ${COMPANY_NAME:-Bio Textile Solution UK}
+      COMPANY_NUMBER: ${COMPANY_NUMBER:-}
+      REGISTERED_OFFICE: ${REGISTERED_OFFICE:-}
+      VAT_NUMBER: ${VAT_NUMBER:-}
+      CONTACT_EMAIL: ${CONTACT_EMAIL:-}
+      SHOW_PRICING: ${SHOW_PRICING:-true}
+    expose: ["3000"]
+    volumes:
+      - app-data:/app/data
+    read_only: true
+    tmpfs: ["/tmp"]
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    networks: [spotfluence_edge]
+    deploy:
+      resources:
+        limits: { cpus: "0.75", memory: 384M }
+        reservations: { memory: 128M }
+    logging: *logging
+
+volumes:
+  app-data: {}
+
+networks:
+  spotfluence_edge:
+    external: true
